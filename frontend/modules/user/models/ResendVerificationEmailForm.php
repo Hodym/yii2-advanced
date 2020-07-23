@@ -1,6 +1,5 @@
 <?php
 
-
 namespace frontend\modules\user\models;
 
 use Yii;
