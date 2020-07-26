@@ -9,6 +9,7 @@ use yii\helpers\Html;
 use yii\helpers\HtmlPurifier;
 use dosamigos\fileupload\FileUpload;
 
+$this->title = Html::encode($user->username);
 ?>
 
 <h3><?php echo Html::encode($user->username); ?></h3>
@@ -17,7 +18,7 @@ use dosamigos\fileupload\FileUpload;
 
 <img src="<?php echo $user->getPicture(); ?>" id="profile-picture" />
 
-<?php if ($currentUser->equals($user)): ?>
+<?php if ($currentUser && $currentUser->equals($user)): ?>
 
     <div class="alert alert-success display-none" id="profile-image-success">Profile image updated</div>
     <div class="alert alert-danger display-none" id="profile-image-fail"></div>
