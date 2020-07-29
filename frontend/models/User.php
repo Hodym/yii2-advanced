@@ -326,7 +326,7 @@ class User extends ActiveRecord implements IdentityInterface
      * @param integer $limit
      * @return array
      */
-    /*public function getFeed(int $limit)
+    public function getFeed(int $limit)
     {
         $order = ['post_created_at' => SORT_DESC];
         return $this->hasMany(Feed::className(), ['user_id' => 'id'])->orderBy($order)->limit($limit)->all();
@@ -337,10 +337,10 @@ class User extends ActiveRecord implements IdentityInterface
      * @param integer $postId
      * @return boolean
      */
-    /*public function likesPost(int $postId)
+    public function likesPost(int $postId)
     {
         /* @var $redis Connection */
-        /*$redis = Yii::$app->redis;
+        $redis = Yii::$app->redis;
         return (bool) $redis->sismember("user:{$this->getId()}:likes", $postId);
     }
     
@@ -348,7 +348,7 @@ class User extends ActiveRecord implements IdentityInterface
      * Get post count
      * @return integer
      */
-    /*public function getPostCount()
+    public function getPostCount()
     {
         return $this->hasMany(Post::className(), ['user_id' => 'id'])->count();
     }
@@ -357,9 +357,9 @@ class User extends ActiveRecord implements IdentityInterface
      * Get post count
      * @return Post[]
      */
-    /*public function getPosts()
+    public function getPosts()
     {
         $order = ['created_at' => SORT_DESC];
         return $this->hasMany(Post::className(), ['user_id' => 'id'])->orderBy($order)->all();
-    }*/
+    }
 }
