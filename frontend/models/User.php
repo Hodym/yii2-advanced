@@ -344,6 +344,7 @@ class User extends ActiveRecord implements IdentityInterface
         return (bool) $redis->sismember("user:{$this->getId()}:likes", $postId);
     }
     
+    
     /**
      * Get post count
      * @return integer
@@ -352,6 +353,7 @@ class User extends ActiveRecord implements IdentityInterface
     {
         return $this->hasMany(Post::className(), ['user_id' => 'id'])->count();
     }
+    
 
     /**
      * Get post count
