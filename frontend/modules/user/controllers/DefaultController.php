@@ -105,6 +105,7 @@ class DefaultController extends Controller
         return $this->goHome();
     }
     
+    
     /**
      * Signs user up.
      *
