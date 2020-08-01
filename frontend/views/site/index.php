@@ -68,7 +68,7 @@ $this->title = 'Newsfeed';
                                         </a>
                                         <?php else: ?>
                                         <p>Post has been reported</p>
-                                        <?php endif; ?>  
+                                        <?php endif; ?>
                                     </div>
                                 </div>
                             </article>

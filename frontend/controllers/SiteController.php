@@ -1,8 +1,10 @@
 <?php
+
 namespace frontend\controllers;
 
 use Yii;
 use yii\web\Controller;
+use yii\web\Cookie;
 use frontend\models\User;
 
 /**
@@ -10,8 +12,9 @@ use frontend\models\User;
  */
 class SiteController extends Controller
 {
+
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function actions()
     {
@@ -21,10 +24,9 @@ class SiteController extends Controller
             ],
         ];
     }
-    
+
     /**
      * Displays homepage.
-     *
      * @return mixed
      */
     public function actionIndex()
@@ -35,13 +37,42 @@ class SiteController extends Controller
 
         /* @var $currentUser User */
         $currentUser = Yii::$app->user->identity;
-        
+
         $limit = Yii::$app->params['feedPostLimit'];
         $feedItems = $currentUser->getFeed($limit);
 
         return $this->render('index', [
-            'feedItems' => $feedItems,
-            'currentUser' => $currentUser,
+                    'feedItems' => $feedItems,
+                    'currentUser' => $currentUser,
         ]);
     }
+
+    /**
+     * About page
+     * @return mixed
+     */
+    public function actionAbout()
+    {
+        return $this->render('about');
+    }
+
+    /**
+     * Change language
+     * @return mixed
+     */
+    public function actionLanguage()
+    {
+        // Hometask: check if language is supported        
+        $language = Yii::$app->request->post('language');
+        Yii::$app->language = $language;
+
+        $languageCookie = new Cookie([
+            'name' => 'language',
+            'value' => $language,
+            'expire' => time() + 60 * 60 * 24 * 30, // 30 days
+        ]);
+        Yii::$app->response->cookies->add($languageCookie);
+        return $this->redirect(Yii::$app->request->referrer);
+    }
+
 }
