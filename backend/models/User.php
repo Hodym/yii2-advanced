@@ -70,6 +70,12 @@ class User extends ActiveRecord implements IdentityInterface
         $this->on(self::EVENT_AFTER_UPDATE, [$this, 'saveRoles']);
     }
     
+    /*public function __construct($config)
+    {
+        $this->on(self::EVENT_AFTER_UPDATE, [$this, 'saveRoles']);
+        return parent::__construct($config);
+    }*/
+    
     /**
      * Revoke old roles and assign new if any
      */

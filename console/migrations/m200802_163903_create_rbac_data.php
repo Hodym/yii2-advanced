@@ -61,7 +61,7 @@ class m200802_163903_create_rbac_data extends Migration
         
         // Create admin user
         /*$user = new User([
-            'email' => 'vabeya7301@icanav.net',
+            'email' => 'admin@examle.com',
             'username' => 'Admin',
             'password_hash' => '$2y$13$RzHTep.G5GLBj6cHKF4H/eUCGgdNqfdpifGoHaWtsFA9DhEEoVSVW',
         ]);
@@ -69,7 +69,7 @@ class m200802_163903_create_rbac_data extends Migration
         $user->save();*/
 
         // Add admin role to user 
-        $auth->assign($adminRole, 1004);
+        /*$auth->assign($adminRole, 1004);*/
     }
 
     public function safeDown()
